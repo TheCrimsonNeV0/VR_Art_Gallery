@@ -1,0 +1,54 @@
+{
+    "name": "Custom Input Actions",
+    "maps": [
+        {
+            "name": "Map",
+            "id": "b0b9319e-5a9f-4ca6-9411-38d5018303de",
+            "actions": [
+                {
+                    "name": "rightPrimaryButton",
+                    "type": "Button",
+                    "id": "42ed3eea-0e8b-4770-8d9b-7f804eed947b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "rightSecondaryButton",
+                    "type": "Button",
+                    "id": "b187737e-568d-4a33-abc4-d7305d8e4272",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "767a3df2-1287-4f2f-879c-e41dd93c9764",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightPrimaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7a4fe71-484e-4d12-8301-893577c1c387",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightSecondaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
