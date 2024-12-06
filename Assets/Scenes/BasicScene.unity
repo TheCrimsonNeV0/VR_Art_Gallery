@@ -5223,6 +5223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: American Eagle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ee81aa83e770a64a8d366540d069473, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8391222552659086748, guid: 6ee81aa83e770a64a8d366540d069473, type: 3}
