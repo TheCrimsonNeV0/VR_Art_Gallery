@@ -22,6 +22,15 @@ public class SkyboxHandlerScript : MonoBehaviour
     public GameObject hexagonalPot;
     public GameObject liddedJar;
     public GameObject teapot;
+
+    private GameObject eagleStatueInstance;
+    private GameObject handStatueInstance;
+    private GameObject hammerStatueInstance;
+    private GameObject hexagonalPotInstance;
+    private GameObject liddedJarInstance;
+    private GameObject teapotInstance;
+
+
     private GameObject heldObject = null;
     private RaycastHit currentHit;
     private string currentNode = "Entrance";
@@ -29,6 +38,25 @@ public class SkyboxHandlerScript : MonoBehaviour
 
     void Start()
     {
+        eagleStatueInstance = Instantiate(eagleStatue);
+        eagleStatueInstance.SetActive(false);
+
+        handStatueInstance = Instantiate(handStatue);
+        handStatueInstance.SetActive(false);
+
+        hammerStatueInstance = Instantiate(hammerStatue);
+        hammerStatueInstance.SetActive(false);
+
+        hexagonalPotInstance = Instantiate(hexagonalPot);
+        hexagonalPotInstance.SetActive(false);
+
+        liddedJarInstance = Instantiate(liddedJar);
+        liddedJarInstance.SetActive(false);
+
+        teapotInstance = Instantiate(teapot);
+        teapotInstance.SetActive(false);
+
+
         RenderSettings.skybox = entranceSkybox;
 
         if (rightHandController == null)
@@ -126,17 +154,17 @@ public class SkyboxHandlerScript : MonoBehaviour
             Debug.Log(currentNode);
             if (currentNode.Equals("Eagle Sculpture"))
             {
-                SpawnObject(eagleStatue);
+                SpawnObject(eagleStatueInstance);
             }
             else if (currentNode.Equals("Hand and Hammer"))
             {
                 if (clickCount % 2 == 0)
                 {
-                    SpawnObject(handStatue);
+                    SpawnObject(handStatueInstance);
                 }
                 else
                 {
-                    SpawnObject(hammerStatue);
+                    SpawnObject(hammerStatueInstance);
                 }
                 clickCount++;
             }
@@ -144,15 +172,15 @@ public class SkyboxHandlerScript : MonoBehaviour
             {
                 if (clickCount % 3 == 0)
                 {
-                    SpawnObject(hexagonalPot);
+                    SpawnObject(hexagonalPotInstance);
                 }
                 else if (clickCount % 3 == 1)
                 {
-                    SpawnObject(liddedJar);
+                    SpawnObject(liddedJarInstance);
                 }
                 else
                 {
-                    SpawnObject(teapot);
+                    SpawnObject(teapotInstance);
                 }
                 clickCount++;
             }
@@ -163,7 +191,11 @@ public class SkyboxHandlerScript : MonoBehaviour
     {
         if (objectToSpawn != null && rightHandController != null)
         {
-            heldObject = Instantiate(objectToSpawn, rightHandController.transform.position, rightHandController.transform.rotation);
+            heldObject = objectToSpawn;
+
+            heldObject.SetActive(true);
+            heldObject.transform.position = rightHandController.transform.position;
+            heldObject.transform.rotation = rightHandController.transform.rotation;
             heldObject.transform.SetParent(rightHandController.transform);
 
             Rigidbody rb = heldObject.GetComponent<Rigidbody>();
@@ -178,7 +210,7 @@ public class SkyboxHandlerScript : MonoBehaviour
     {
         if (heldObject != null)
         {
-            Destroy(heldObject);
+            heldObject.SetActive(false);
             heldObject = null;
         }
     }
